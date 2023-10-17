@@ -140,3 +140,27 @@ for factor in range(1, num+1):
     if num % factor == 0:
         print(f"{factor} is a factor of 12")
 
+
+#8.5 Exercise 1
+"""
+Using break, write a program that repeatedly asks the user for some input and quits only if the user enters "q" or "Q". 
+"""
+
+text = input("Some text: ")
+text = text.lower()
+
+for character in text:
+    if character == "q":
+        break
+else:
+    print("There is no 'q' or 'Q' in this text")
+
+#8.5 Exercise 2
+"""
+Using continue, write a program that loops over the numbers 1 to 50 and prints all numbers that are not multiples of 3. 
+"""
+
+for num in range(1, 51):
+    if num % 3 == 0:
+        continue
+    print(num)
