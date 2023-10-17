@@ -164,3 +164,21 @@ for num in range(1, 51):
     if num % 3 == 0:
         continue
     print(num)
+
+#8.6 Exercise 1
+"""
+Write a program that repeatedly asks the user to input an integer.
+If the user enters something other than an integer, then the program should catch the ValueError and display the message "Try again". 
+Once the user enters an integer, the program should display the number back to the user and end without crashing.
+"""
+
+number = 0
+
+while number >= 0:
+    try:
+        number = int(input("Enter an integer: "))
+        print(number)
+        break
+    except ValueError:
+        print("Try again")
+ 
