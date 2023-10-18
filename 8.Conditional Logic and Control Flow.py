@@ -76,7 +76,6 @@ elif (sport == "basketball") or (sport == "golf"):
 else:
     print("Unknown sport")
 
-
     
 #8.3 Exercise 1
 """Write a program that prompts the user to enter a word using the input() function and compares the lenght
@@ -111,7 +110,6 @@ if number == 3:
     print("You win!")
 else:
     print("You lose.")
-
 
 
 #8.4 Challenge: Find the Factors of a Number
@@ -155,6 +153,7 @@ for character in text:
 else:
     print("There is no 'q' or 'Q' in this text")
 
+
 #8.5 Exercise 2
 """
 Using continue, write a program that loops over the numbers 1 to 50 and prints all numbers that are not multiples of 3. 
@@ -164,6 +163,7 @@ for num in range(1, 51):
     if num % 3 == 0:
         continue
     print(num)
+
 
 #8.6 Exercise 1
 """
@@ -181,4 +181,24 @@ while number >= 0:
         break
     except ValueError:
         print("Try again")
- 
+
+
+#8.6 Exercise 2
+"""
+Write a program that asks the user to input a string and an integer n, then display the character at index n in the string.
+Use error handling to make sure the program doesn't crash if the user enters something other than an integer or if the index is out of bounds.
+The program should display a different message depending on which error occurs.
+"""
+
+try:
+    text = input("Write some text: ")
+    num = int(input("Write an integer: "))
+    character = text[num]
+
+    print(character)
+        
+except ValueError:
+    print("Entered value must be an integer")
+    
+except IndexError:
+    print("Entered index is out of range")
