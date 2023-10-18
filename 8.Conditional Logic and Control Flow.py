@@ -202,3 +202,40 @@ except ValueError:
     
 except IndexError:
     print("Entered index is out of range")
+
+
+# 8.7 Exercise 1
+"""
+Write a function called roll() that uses randint() to simulate rolling a fair die by returning a random integer between 1 and 6.
+"""
+
+from random import randint
+
+def roll():
+    """Return random integer between 1 and 6"""
+    return randint(1, 6)
+
+result = roll()
+print(f"Result of rolling a fair die is {result}")
+
+
+# 8.7 Exercise 2
+"""
+Write a program that simulates ten thousand rools of a fair die and displays the average number rolled.
+"""
+
+from random import randint
+
+def roll():
+    return randint(1, 6)
+
+#Create a list of dice results
+results = []
+
+for trial in range(10_000):
+    result = roll()
+    results.append(result)
+
+average = sum(results)/len(results)
+
+print(f"Average: {average}")
