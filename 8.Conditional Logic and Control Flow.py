@@ -289,3 +289,98 @@ num_trials = 10_000
 average_flips = average_flips_needed(num_trials)
 
 print(f"On average, {average_flips:.2f} flips are needed to get both heads and tails in {num_trials} trials")
+
+
+# 8.9 Challenge: Simulate an Election
+'''
+With some help from the random module and a little condition logic, you can simulate an election between two candidates.
+Suppose two candidates, Candidate A and Candidate B, are running for mayor in a city with three voting regions. 
+The most recent polls show that Candidate A has the following chances for winning in each region:
+
+• Region 1: 87% chance of winning
+• Region 2: 65% chance of winning
+• Region 3: 17% chance of winning
+
+Write a program that simulates the election 10,000 times and prints the percentage of where Candidate A wins.
+To keep things simple, assume that a candidate wins the election is they win in at least two of the three regions.
+'''
+
+import random
+
+number_of_voters = 10_000
+
+#chance for winning candidate A in different regions
+region1 = 0.87
+region2 = 0.65
+region3 = 0.17
+
+number_of_regions_to_win = 2
+a_wins1 = b_wins1 = 0
+a_wins2 = b_wins2 = 0
+a_wins3 = b_wins3 = 0
+
+def simulation_of_elections(probability_a_wins):
+    if random.random() < probability_a_wins:
+        return "candidate_a"
+    else:
+        return "candidate_b"
+
+#Region1
+    
+for election in range(number_of_voters):
+    
+        if simulation_of_elections(region1) == "candidate_a":
+            a_wins1 = a_wins1 + 1
+        else:
+            b_wins1 = b_wins1 + 1
+
+result1 = (a_wins1 / number_of_voters) * 100
+print(f"{result1:.02f}%")
+
+#Region2
+
+for election in range(number_of_voters):
+
+        if simulation_of_elections(region2) == "candidate_a":
+            a_wins2 = a_wins2 + 1
+        else:
+            b_wins2 = b_wins2 + 1
+
+result2 = (a_wins2 / number_of_voters) * 100
+print(f"{result2:.02f}%")
+
+#Region3
+
+for election in range(number_of_voters):
+    
+        if simulation_of_elections(region3) == "candidate_a":
+            a_wins3 = a_wins3 + 1
+        else:
+            b_wins3 = b_wins3 + 1
+
+result3 = (a_wins3 / number_of_voters) * 100
+print(f"{result3:.02f}%")
+
+#Defining conditions, which must be met to win the elections.
+
+def condition1():
+    if result1 > 50:
+        return True
+
+def condition2():
+    if result2 > 50:
+        return True
+
+def condition3():
+    if result3 > 50:
+        return True
+
+#To win the election, at least at two regions, candidate has to win.
+
+if (condition1 and condition2) or (condition2 and condition3) or (condition1 and condition3):
+    result = True
+else:
+    result = False
+
+print(f"That is {result} that Candidate A wins the elections.")
+
