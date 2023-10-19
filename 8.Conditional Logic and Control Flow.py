@@ -239,3 +239,53 @@ for trial in range(10_000):
 average = sum(results)/len(results)
 
 print(f"Average: {average}")
+
+
+# 8.8 Challenge: Simulate a Coin Toss Experiment
+"""
+Suppose you flip a fair coin repeatedly until it lands on heads and tails at least one time each.
+In other words, after the first flip, you continue to flip the coin until it lands on the other side.
+
+Doing this generates a sequence of heads and tails. For example, the first time you do this experiment,
+the sequence might be heads, heads, tails.
+
+On average, how many flips are needed for the sequence to contain both heads and tails?
+
+Write simulation that runs ten thousand trials of the experiment and prints the average number of flips
+per trial.
+"""
+
+import random
+
+def coin_flip():
+    """Randomly returns 'heads' or 'tails'."""
+
+    return random.choice(['heads', 'tails'])
+
+
+def generate_sequence():    
+    """Generates a sequence of coin flips until both sides ('heads' and 'tails') are rolled at least once."""
+
+    sequence = []
+    
+    while True:
+        flip_result = coin_flip()
+        sequence.append(flip_result)
+        if 'heads' in sequence and 'tails' in sequence:
+            break    
+    return sequence
+
+def average_flips_needed(trials):
+    """Simulates the experiment in a specified number of trials, records the number of flips required for each trial, and calculates the average number of flips needed."""
+    
+    total_flips = 0
+
+    for n in range(trials):
+        sequence = generate_sequence()
+        total_flips += len(sequence)
+    return total_flips / trials
+
+num_trials = 10_000
+average_flips = average_flips_needed(num_trials)
+
+print(f"On average, {average_flips:.2f} flips are needed to get both heads and tails in {num_trials} trials")
