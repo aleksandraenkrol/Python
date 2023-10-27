@@ -136,3 +136,95 @@ Sort the numbers list in numerical order using .sort().
 """
 
 numbers1.sort()
+
+
+# 9.4 Challenge: List of Lists
+"""
+Write a program that contains the following list of lists:
+
+universities = [
+    ['California Institute of Technology', 2175, 37704],
+    ['Harvard', 19627, 39849],
+    ['Massachusetts Institute of Technology', 10566, 40732],
+    ['Princeton', 7802, 37000],
+    ['Rice', 5879, 35551],
+    ['Stanford', 19535, 40569],
+    ['Yale', 11701, 40500]
+    ]
+
+Define a function, enrollment_stats(), with a single parameter. This parameter should be a list of lists in which each individual list contains three elements:
+
+1. The name of a university
+2. The total number of enrolled students
+3. The annual tuition fees
+
+enrollment_stats() should return two lists, the first containing all the student enrollment values and the second containing all the tuition fees.
+
+Next, define two functions, mean() and median(), that take a single list argument and return the mean or median of the values in each list, respectively.
+
+Using universities, enrollment_status(), mean(), and median(), calculate the total number of students, the total tuition, the mean and median numbers of students, and the mean and
+median tuition values.
+
+Finally, output all values and format the output so that it looks like this:
+
+****************************
+Total students: 77,285
+Total tuition: $271,905
+
+Student mean: 11,040.71
+Student median: 10,566
+
+Tuition mean: $38,843.57
+Tuition median: $39,849
+****************************
+"""
+
+universities = [
+    ['California Institute of Technology', 2175, 37704],
+    ['Harvard', 19627, 39849],
+    ['Massachusetts Institute of Technology', 10566, 40732],
+    ['Princeton', 7802, 37000],
+    ['Rice', 5879, 35551],
+    ['Stanford', 19535, 40569],
+    ['Yale', 11701, 40500]
+    ]
+
+def enrollment_stats(university_data):
+    """Returns three lists containing data about names of the universities, enrollment values and all the tuition fees"""
+    name = []
+    students = []
+    fees = []
+
+    for university in university_data:
+        name.append(university[0])
+        students.append(university[1])
+        fees.append(university[2])
+
+    return name, students, fees
+
+name, students, fees = enrollment_stats(universities)
+
+print(f"Total students: {sum(students):,}")
+print(f"Total tuition: $ {sum(fees):,}")
+
+def mean(number_of_students):
+    result = sum(number_of_students) / len(number_of_students)
+    return result
+
+print(f"Student mean: {mean(students):,.2f}")
+
+def median(number_of_students):
+    number_of_students.sort()
+
+    lenght_of_list = len(students)
+
+    if len(number_of_students) % 2 == 0:
+        n = lenght_of_list / 2
+        return ((number_of_students[n-1]+number_of_students[n+1])/2)
+    else:
+        return number_of_students[int((lenght_of_list)/2)]
+
+print(f"Student median: {median(students):,}")
+
+print(f"Tuition mean: {mean(fees):,.2f}")
+print(f"Tuition median: $ {median(fees):,}")
