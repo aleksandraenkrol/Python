@@ -228,3 +228,85 @@ print(f"Student median: {median(students):,}")
 
 print(f"Tuition mean: {mean(fees):,.2f}")
 print(f"Tuition median: $ {median(fees):,}")
+
+# 9.5 Challenge: Wax Poetic
+"""
+In this challenge, you'll write a program that generates poetry.
+
+Create five lists for different word types:
+
+1. Nouns: ["fossil", "horse", "aardvark", "judge", "chef", "mango", "extrovert", "gorilla"]
+2. Verbs: ["kicks", "jingles", "bounces", "slurps", "meows", "explodes", "curdles"]
+3. Adjectives: ["furry", "balding", "incredulous", "fragrant", "exuberant", "glistening"]
+4. Prepositions:["against", "after", "into", "beneath", "upon", "for", "in", "like", "over", "within"]
+5. Adverbs: ["curiously", "extravagantly", "tantalizingly", "furiously", "sensuously"]
+
+Randomly select the following number of elements from each list:
+-Three nouns
+-Three verbs
+-Three adjectives
+-Two prepositions
+-One adverb
+
+You can do this with the choice() function in the random module. This function takes a list as input
+and returns a randomly selected element of the list.
+
+For example, here's how you use random.choice() to get random element from the list["a", "b", "c"]:
+
+import random
+
+random_element = random.choice(["a", "b", "c"])
+
+Using the randomly selected words, generate and display a peom with the following structure inspired
+by Cliffors Pickover:
+
+{A/An}{adj1}{noun1}
+{A/An}{adj1}{noun1}{verb1}{prep1}the{adj2}{noun2}
+{adverb1},the{noun1}{verb2}
+the {noun2}{verb3}{prep2}{a/an}{adj3}{noun3}
+
+Here, adj stands for adjective and prep for preposition.
+
+Here's an example of the kind of poem your program might generate:
+
+A furry horse
+A furry horse curdles within the fragrant mango
+extravagantly, the horse slurps
+the mango meows beneath a balding extrovert
+
+Each time your program runs, it should generate a new poem.
+"""
+import random
+
+Nouns = ["fossil", "horse", "aardvark", "judge", "chef", "mango", "extrovert", "gorilla"]
+
+Verbs = ["kicks", "jingles", "bounces", "slurps", "meows", "explodes", "curdles"]
+
+Adjectives = ["furry", "balding", "incredulous", "fragrant", "exuberant", "glistening"]
+
+Prepositions = ["against", "after", "into", "beneath", "upon", "for", "in", "like", "over", "within"]
+
+Adverbs = ["curiously", "extravagantly", "tantalizingly", "furiously", "sensuously"]
+
+noun1 = random.choice(Nouns)
+noun2 = random.choice(Nouns)
+noun3 = random.choice(Nouns)
+
+verb1 = random.choice(Verbs)
+verb2 = random.choice(Verbs)
+verb3 = random.choice(Verbs)
+
+adj1 = random.choice(Adjectives)
+adj2 = random.choice(Adjectives)
+adj3 = random.choice(Adjectives)
+
+prep1 = random.choice(Prepositions)
+prep2 = random.choice(Prepositions)
+
+adverb1 = random.choice(Adverbs)
+
+
+print(f"A/An {adj1} {noun1}")
+print(f"A/An {adj1} {noun1} {verb1} {prep1} the {adj2} {noun2}")
+print(f"{adverb1}, the {noun1} {verb2}")
+print(f"the {noun2} {verb3} {prep2} a/an {adj3} {noun3}")
