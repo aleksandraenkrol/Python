@@ -1,4 +1,42 @@
-# Day 53
+# Day 52
+# Draw a square with the dimensions specified by the user using asterisks (*).Draw a rectangle with the dimensions specified by the user.
+
+# drawing a square
+
+def draw_square(size):
+    side = "* " * size
+    side_len = len(side)
+    print(side)
+    for a in range(1, size-1):
+        print("*", " " * (side_len - 5), "*")
+    print(side)
+
+size_str = input("Please enter length of side: ")
+size = int(size_str)
+
+draw_square(size)
+
+
+# drawing a rectangle
+
+def draw_rectangle(a, b):
+    side_a = "* " * a
+    side_a_len = len(side_a)
+    print(side_a)
+    for i in range(1, b-1):
+        print("*", " " * (side_a_len - 5), "*")
+    print(side_a)
+
+a_str = input("Please enter length of the first side: ")
+a = int(a_str)
+b_str = input("Please enter length of the second side: ")
+b = int(b_str)
+
+draw_rectangle(a, b)
+
+
+# Day 53 
+# Simple polish-english dictionary.
 
 dict={
     "bardzo":"very",
