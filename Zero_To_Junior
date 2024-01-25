@@ -1,0 +1,59 @@
+# Day 53
+
+dict={
+    "bardzo":"very",
+    "nazwa":"name",
+    "również":"also",
+    "i":"and",
+    "słowo":"word",
+    "grać":"play",
+    "mały":"small",
+    "my":"we",
+    "zdanie":"sentence",
+    "jest":"is",
+    "dom":"home",
+    "roślina":"plant",
+    "ty":"you",
+    "mówić":"say",
+    "z":"with",
+    "zanim":"before",
+    "czas":"time",
+    "tylko":"only",
+    "ponownie":"again",
+    "długo":"long",
+    "robić":"make",
+    "matka":"mother",
+    "rzecz":"thing",
+    "nigdy":"never",
+    "teraz":"now",
+    "praca":"work",
+    "po":"after",
+    "numer":"number",
+    "odpowiedź":"answer"
+    }
+
+def get_sentence(prompt):
+    sentence_str = input(prompt)
+    sentence = sentence_str.capitalize()
+    return sentence
+
+def sentence_translator(sentence):
+    words = sentence.split()
+    translated_words = []
+    
+    for word in words:
+        if word in dict:
+            translated_words.append(dict[word])
+        else:
+            translated_words.append(word + '*')
+
+    new_sentence = ' '.join(translated_words)
+    print(new_sentence)
+            
+def run_translator():
+    print("Welcome in translator. This program enables you to translate polish sentences into english. Enjoy!")
+    sentence = get_sentence("Enter the sentence in polish for translating into english: ")
+    sentence_translator(sentence)
+
+
+run_translator()
