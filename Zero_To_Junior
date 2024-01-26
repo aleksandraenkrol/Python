@@ -130,3 +130,5 @@ index_find = text.find(string_to_find)
 result2 = find_string(index_find, text)
 print(result2)
 
+#Day 55
+#Repetition
