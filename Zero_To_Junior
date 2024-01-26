@@ -95,3 +95,38 @@ def run_translator():
 
 
 run_translator()
+
+
+#Day 54
+#Your job is to create your OWN substring function. Don't use the system one, just write it from scratch (don't use slice() or [x:y]).
+
+def my_substring(index_start, index_end, text):
+    characters = list(text)
+
+    if index_end is None:
+        return ''.join(characters[index_start:])
+    else:
+        return ''.join(characters[index_start: index_end])
+
+
+def find_string(index_find, text):
+    characters = list(text)
+    print(index_find)
+    return ''.join(characters[index_find:])
+    
+text = input("Wprowadź tekst: ")
+index_start_str = input("Podaj index początkowy: ")
+index_start = int(index_start_str)
+index_end_str = input("Podaj index końcowy: ")
+index_end = None if not index_end_str else int(index_end_str)
+
+result = my_substring(index_start, index_end, text)
+print(result)
+
+
+string_to_find = input("Jakiego słowa szukasz? ")
+index_find = text.find(string_to_find)
+
+result2 = find_string(index_find, text)
+print(result2)
+
