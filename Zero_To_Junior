@@ -132,3 +132,36 @@ print(result2)
 
 #Day 55
 #Repetition
+
+#Day 56
+#Password generator
+
+import random
+import string
+
+def generuj_haslo():
+    # Definiuje zestawy znaków dla różnych kategorii
+    cyfry = string.digits
+    duze_litery = string.ascii_uppercase
+    male_litery = string.ascii_lowercase
+    znaki_specjalne = '!@#$%^&*()_-+=<>?/{}~'
+
+    dostepne_znaki = ''.join([c for c in string.printable if c not in '1Io0l'])
+
+    dlugosc_hasla = random.randint(10, 15)
+
+    haslo = (
+        random.choice(cyfry) +
+        random.choice(duze_litery) +
+        random.choice(male_litery) +
+        random.choice(znaki_specjalne) +
+        ''.join(random.choice(dostepne_znaki) for _ in range(dlugosc_hasla - 4))
+    )
+
+    haslo = ''.join(random.sample(haslo, len(haslo)))
+
+    return haslo
+
+wygenerowane_haslo = generuj_haslo()
+print("Wygenerowane hasło:", wygenerowane_haslo)
+
