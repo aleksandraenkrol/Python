@@ -165,3 +165,8 @@ def generuj_haslo():
 wygenerowane_haslo = generuj_haslo()
 print("Wygenerowane hasło:", wygenerowane_haslo)
 
+# Day 57
+# 21 niewygodnych prawd o programistycznym świecie
+
+# Day 58
+# Set
