@@ -207,3 +207,23 @@ if guessed_number in numbers_drawn:
     print("Yeah! You guessed.")
 else:
     print("Nope! You missed.")
+
+
+# Day 62
+# Repetition
+
+
+# Day 63
+# Write code that asks for two numbers and divides them. Use try / except to block division by 0.
+
+num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
+
+def divide(num1, num2):
+    division = num1 / num2
+    return division
+
+try:
+    print(divide(num1, num2))
+except:
+    print("You can not divide by 0")
