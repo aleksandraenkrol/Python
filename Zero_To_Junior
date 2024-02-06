@@ -191,3 +191,19 @@ print(my_list)
 
 result = convert_list()
 print(result)
+
+# Day 61
+# Write a program that randomly selects 5 integers from 1 to 10 and then asks the user to guess at least one of these numbers. 
+# The program should answer whether the number provided by the user was one of the ones drawn or not.
+
+import random
+
+numbers_drawn = random.sample(range(1, 10), 5)
+
+guess_number = input("Guess number from 1 to 10: ")
+guessed_number = int(guess_number)
+
+if guessed_number in numbers_drawn:
+    print("Yeah! You guessed.")
+else:
+    print("Nope! You missed.")
