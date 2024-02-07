@@ -227,3 +227,17 @@ try:
     print(divide(num1, num2))
 except:
     print("You can not divide by 0")
+
+
+# Day 64
+# Formatting strings
+
+
+# Day 65
+# Uploading files
+
+file_path = '(...)'
+
+with open(file_path) as file:
+    content = file.read()
+    print(content)
